@@ -1,8 +1,23 @@
+import { useState } from 'react';
+import Listado from '../Listado/Index.jsx';
+
 import './formulario.css'
 
-const Formulario = () => {
+const Formulario = ({ agregarCita }) => {
+
+    const enviarFormulario = (e) => {
+        e.preventDefault();
+        agregarCita({
+            mascota: e.target.mascota.value,
+            propietario: e.target.propietario.value,
+            fecha: e.target.fecha.value,
+            hora: e.target.hora.value,
+            sintomas: e.target.sintomas.value
+        });
+    };
+
     return (
-        <form action="">
+        <form onSubmit={enviarFormulario}>
             <label>Nombre Mascota</label>
             <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota"/>
 
