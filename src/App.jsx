@@ -32,9 +32,7 @@ function App() {
     }
   ]);
 
-  const agregarCita = (nuevaCita) => {
-    setCitas([...citas, nuevaCita]);
-  };
+
   
 
   return (
@@ -43,7 +41,7 @@ function App() {
       <div className="app-container">
         <div className="app-column app-column--left">
           <Subtitulo subtitulo="Crear mi cita" />
-          <Formulario agregarCita={agregarCita} />
+          <Formulario agregarCitas={setCitas} />
         </div>
         <div className="app-column app-column--right">
           <Subtitulo subtitulo="Administra tus citas" />

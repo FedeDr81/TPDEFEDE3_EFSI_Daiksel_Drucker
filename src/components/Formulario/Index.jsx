@@ -3,18 +3,23 @@ import Listado from '../Listado/Index.jsx';
 
 import './formulario.css'
 
-const Formulario = ({ agregarCita }) => {
+const Formulario = ({ agregarCitas }) => {
 
     const enviarFormulario = (e) => {
         e.preventDefault();
-        agregarCita({
-            mascota: e.target.mascota.value,
-            propietario: e.target.propietario.value,
-            fecha: e.target.fecha.value,
-            hora: e.target.hora.value,
-            sintomas: e.target.sintomas.value
-        });
+
+        const nuevaCita = {
+            Mascota: e.target.mascota.value,
+            Dueño: e.target.propietario.value,
+            Fecha: e.target.fecha.value,
+            Hora: e.target.hora.value,
+            Sintomas: e.target.sintomas.value
+        };
+
+        agregarCitas((prevCitas) => [...prevCitas, nuevaCita]);
+        e.target.reset();
     };
+
 
     return (
         <form onSubmit={enviarFormulario}>
